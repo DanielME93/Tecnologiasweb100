@@ -1,37 +1,189 @@
 /* Estilo general */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
+    background-color: #f7f7f7;
+    color: #333;
     margin: 0;
     padding: 0;
 }
-header, footer {
-    background-color: #333;
-    color: white;
+
+/* Estilo del encabezado y navegación */
+header {
+    background-color: #9ca2f7;
+    border-bottom: 1px solid #111010;
+    padding: 20px 0;
     text-align: center;
-    padding: 1em 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
 }
+
+header h1 {
+    font-family: 'Lobster', cursive;
+    color: #000000;
+    margin: 0;
+}
+
+nav {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+nav.hidden {
+    opacity: 0;
+}
+
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 20px 0 0 0;
+    text-align: center;
 }
+
 nav ul li {
     display: inline;
-    margin: 0 10px;
+    margin: 0 15px;
 }
+
 nav ul li a {
-    color: white;
+    color: #333;
     text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s;
 }
+
+nav ul li a:hover {
+    color: #e91e63;
+}
+
+/* Estilo del ícono del menú */
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    nav {
+        display: none;
+    }
+
+    nav.show {
+        display: block;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        border-top: 1px solid #dad7d7;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
+/* Estilo del contenido principal */
 main {
+    padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+main section, main aside {
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    margin: 20px;
     padding: 20px;
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-aside {
-    background-color: #f4f4f4;
-    padding: 10px;
+
+main section.show, main aside.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+main section h2, main aside h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+main section p, main aside p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+main section img, main aside img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s;
+}
+
+main section.show img, main aside.show img {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+main aside ul {
+    padding: 0;
+}
+
+main aside ul li {
+    list-style: none;
+    margin: 10px 0;
+}
+
+main aside ul li a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+main aside ul li a:hover {
+    color: #e91e63;
+}
+
+/* Estilo del pie de página */
+footer {
+    background-color: #fff;
+    border-top: 1px solid #e6e6e6;
+    text-align: center;
+    padding: 20px 0;
     margin-top: 20px;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
 }
+
 footer p {
+    color: #999;
     margin: 0;
 }
 
@@ -40,20 +192,74 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
-    font-size: 18px;
+    font-size: 16px;
     text-align: left;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out 0.4s, transform 0.6s ease-out 0.4s;
 }
+
+table.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 table th, table td {
     padding: 12px;
     border: 1px solid #ddd;
 }
+
 table th {
     background-color: #f2f2f2;
     color: #333;
 }
+
 table tr:nth-child(even) {
     background-color: #f9f9f9;
 }
+
 table tr:hover {
     background-color: #f1f1f1;
 }
+
+/* Estilo para formularios */
+form {
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out 0.6s, transform 0.6s ease-out 0.6s;
+}
+
+form.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+form label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+form input, form textarea {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #e91e63;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #d81b60;
+}
+

@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre el Impacto de las Tecnologías Web</title>
+    <title>Impacto de las Tecnologías Web</title>
     <link rel="stylesheet" href="estilos/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lobster&display=swap" rel="stylesheet">
+    <script src="js/scripts.js" defer></script>
 </head>
 <body>
     <header>
         <h1>Impacto de las Tecnologías Web</h1>
-        <nav>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <nav id="nav">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="sobre.html">Sobre el Impacto</a></li>
@@ -32,7 +37,7 @@
         </section>
         <section>
             <h2>Video sobre el Impacto de las Tecnologías Web</h2>
-            <video width="600" controls>
+            <video width="500" controls>
                 <source src="videos/tecnologias.mp4" type="video/mp4">
                 Tu navegador no soporta la etiqueta de video. <a href="videos/impacto_tecnologias_web.mp4">Descarga el video aquí</a>.
             </video>
